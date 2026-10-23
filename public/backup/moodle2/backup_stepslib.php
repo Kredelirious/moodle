@@ -2226,8 +2226,8 @@ class backup_main_structure_step extends backup_structure_step {
         $info['name'] = $this->get_setting_value('filename');
         $info['moodle_version'] = $CFG->version;
         $info['moodle_release'] = $CFG->release;
-        $info['backup_version'] = $CFG->backup_version;
-        $info['backup_release'] = $CFG->backup_release;
+        $info['backup_version'] = \backup::VERSION;
+        $info['backup_release'] = \backup::RELEASE;
         $info['backup_date']    = time();
         $info['backup_uniqueid']= $this->get_backupid();
         $info['mnet_remoteusers']=backup_controller_dbops::backup_includes_mnet_remote_users($this->get_backupid());
