@@ -539,6 +539,7 @@ class backup_controller extends base_controller {
         // Basic/initial prevention against time/memory limits
         core_php_time_limit::raise(1 * 60 * 60); // 1 hour for 1 course initially granted
         raise_memory_limit(MEMORY_EXTRA);
+        backup_controller_dbops::apply_version_and_release();
 
         // Release the session so other tabs in the same session are not blocked.
         if ($this->get_releasesession() === backup::RELEASESESSION_YES) {
